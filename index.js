@@ -3,6 +3,29 @@ const nodemailer = require('nodemailer');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
+var helper = require('sendgrid').mail;
+var from_email = new helper.Email('rdmytrenko07@gmail.com');
+var to_email = new helper.Email('liverkuzen1989@gmail.com');
+var subject = 'Hello World from the SendGrid Node.js Library!';
+var content = new helper.Content('text/plain', 'Hello, Email!');
+var mail = new helper.Mail(from_email, subject, to_email, content);
+
+var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+var request = sg.emptyRequest({
+    method: 'POST',
+    path: '/sendMessage',
+    body: mail.toJSON(),
+});
+
+sg.API(request, function(error, response) {
+    console.log(response.statusCode);
+    console.log(response.body);
+    console.log(response.headers);
+});
+
+
+/*
+
 const app = express();
 
 app.use(cors());
@@ -30,16 +53,13 @@ app.get('/', function (req, res) {
 
 app.post('/sendMessage', async function (req, res) {
     // send mail with defined transport object
-    function checkUserAuth(req, res, next) {
-        if (req.session.user) return next();
-        return next(new NotAuthorizedError());
-    }
+
     let {message, contacts, name} = req.body;
     let info = await transporter.sendMail({
         from: 'HRs WANTS ME', // sender address
         to: "liverkuzen1989@gmail.com", // list of receivers
         subject:" HRs WANTS ME", // Subject line
-        /* text: "Hello world?", // plain text body*/
+        /!* text: "Hello world?", // plain text body*!/
         html: `<b>HСообщение с вашего портфолио</b>
                <div>name: ${name}</div>
                <div>contacts: ${contacts}</div>
@@ -56,5 +76,6 @@ app.listen(port, function () {
     console.log('Example app listening on port 3000!');
 });
 
+*/
 
 
