@@ -30,6 +30,10 @@ app.get('/', function (req, res) {
 
 app.post('/sendMessage', async function (req, res) {
     // send mail with defined transport object
+    function checkUserAuth(req, res, next) {
+        if (req.session.user) return next();
+        return next(new NotAuthorizedError());
+    }
     let {message, contacts, name} = req.body;
     let info = await transporter.sendMail({
         from: 'HRs WANTS ME', // sender address
@@ -41,6 +45,7 @@ app.post('/sendMessage', async function (req, res) {
                <div>contacts: ${contacts}</div>
                <div>message: ${message}</div>`, // html body
     });
+
 
     res.send(req.body);
 });
