@@ -18,10 +18,10 @@ let transporter = nodemailer.createTransport({
     port: 587,
     secure: false, // true for 465, false for other ports
     requireTLS: true,
-    auth: {
+
         user: 'rdmytrenko07@gmail.com', // generated ethereal user
         pass: 'Liverkuzen1989', // generated ethereal password
-     },
+
 });
 
 app.get('/', function (req, res) {
