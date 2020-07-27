@@ -47,7 +47,7 @@ app.post('/sendMessage', async function (req, res) {
     res.send(req.body);
 });
 
-let port = process.env.PORT || '3010';
+let port = process.env.PORT || 3010;
 
 app.listen(port, function () {
     console.log('Example app listening on port 3000!');
