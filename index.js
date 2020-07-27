@@ -14,7 +14,27 @@ var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
 var request = sg.emptyRequest({
     method: 'POST',
     path: '/sendMessage',
-    body: mail.toJSON(),
+    body: {
+        personalizations: [
+            {
+                to: [
+                    {
+                        email: 'liverkuzen1989@gmail.com',
+                    },
+                ],
+                subject: 'Hello World from the SendGrid Node.js Library!',
+            },
+        ],
+        from: {
+            email: 'rdmytrenko07@gmail.com',
+        },
+        content: [
+            {
+                type: 'text/plain',
+                value: 'Hello, Email!',
+            },
+        ],
+    },
 });
 
 sg.API(request, function(error, response) {
