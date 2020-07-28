@@ -30,8 +30,9 @@ let transporter = nodemailer.createTransport({
     requireTLS: true,
     /*host: 'gmail',*/
     auth: {
+        type: 'OAuth2',
         user: 'rdmytrenko07@gmail.com', // generated ethereal user
-        pass: 'Liverkuzen1989', // generated ethereal password
+        /*pass: 'Liverkuzen1989',*/ // generated ethereal password
         accessToken: accessToken
      },
 });
