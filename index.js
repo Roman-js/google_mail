@@ -18,15 +18,12 @@ let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
     secure: false, // true for 465, false for other ports
-    /*requireTLS: true,*/
+    requireTLS: true,
     /*host: 'gmail',*/
     auth: {
         user: 'rdmytrenko07@gmail.com', // generated ethereal user
         pass: 'Liverkuzen1989', // generated ethereal password
      },
-    tls: {
-        rejectUnauthorized: false
-    }
 });
 
 /*
@@ -78,16 +75,7 @@ app.post('/sendMessage', async function (req, res) {
                <div>message: ${message}</div>`, // html body
     });
 
-    transporter.sendMail(mailOptions, function(error, info){
-        if(error){
-            console.log(error);
-        }else{
-            console.log('Message sent: ' + info.response);
-            res.send(200);
-        }
-    });
-
-    /*res.send(req.body);*/
+    res.send(req.body);
 });
 
 
