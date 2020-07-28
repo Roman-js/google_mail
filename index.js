@@ -13,19 +13,23 @@ let smtp_login = process.env.SMTP_LOGIN || '';
 let smtp_password = process.env.SMTP_PASSWORD || '';
 
 
-/*let transporter = nodemailer.createTransport({
+let transporter = nodemailer.createTransport({
 
     host: 'smtp.gmail.com',
     port: 587,
     secure: false, // true for 465, false for other ports
-    requireTLS: true,
-    /!*host: 'gmail',*!/
+    /*requireTLS: true,*/
+    /*host: 'gmail',*/
     auth: {
         user: 'rdmytrenko07@gmail.com', // generated ethereal user
         pass: 'Liverkuzen1989', // generated ethereal password
      },
-});*/
+    tls: {
+        rejectUnauthorized: false
+    }
+});
 
+/*
 let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
@@ -53,6 +57,7 @@ transporter.sendMail({
         user: 'user@example.com'
     }
 });
+*/
 
 app.get('/', function (req, res) {
     res.send('Hello World!');
