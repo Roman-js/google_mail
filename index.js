@@ -16,17 +16,25 @@ let smtp_password = process.env.SMTP_PASSWORD || '';
 
 
 let transporter = nodemailer.createTransport({
-
+/*
     host: 'smtp.gmail.com',
     port: 587,
     secure: false, // true for 465, false for other ports
     requireTLS: true,
-    /*host: 'gmail',*/
+    /!*host: 'gmail',*!/
     auth: {
         user: smtp_login, // generated ethereal user
         pass:smtp_password, // generated ethereal password
-     },
+     },*/
+
+    host: 'smtp.rambler.ru',
+    port: 465,
+    auth: {
+        user: 'pilesos9@rambler.ru',
+        pass: 'Roman371789'
+    }
 });
+
 
 /*
 let transporter = nodemailer.createTransport({
