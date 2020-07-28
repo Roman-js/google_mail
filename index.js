@@ -78,7 +78,16 @@ app.post('/sendMessage', async function (req, res) {
                <div>message: ${message}</div>`, // html body
     });
 
-    res.send(req.body);
+    transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+            console.log(error);
+        }else{
+            console.log('Message sent: ' + info.response);
+            res.send(200);
+        }
+    });
+
+    /*res.send(req.body);*/
 });
 
 
