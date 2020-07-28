@@ -14,14 +14,15 @@ let smtp_password = process.env.SMTP_PASSWORD || '';
 
 
 let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
+    /*host: 'smtp.gmail.com',
     port: 587,
     secure: false, // true for 465, false for other ports
-    requireTLS: true,
-
+    requireTLS: true,*/
+    host: 'gmail',
+    auth: {
         user: 'rdmytrenko07@gmail.com', // generated ethereal user
         pass: 'Liverkuzen1989', // generated ethereal password
-
+     },
 });
 
 app.get('/', function (req, res) {
