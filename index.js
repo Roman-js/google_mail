@@ -29,7 +29,7 @@ let smtp_password = process.env.SMTP_PASSWORD || '';
 let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
-    secure: true,
+    secure: false,
     auth: {
         type: 'OAuth2'
     }
