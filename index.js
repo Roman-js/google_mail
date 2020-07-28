@@ -31,36 +31,6 @@ let transporter = nodemailer.createTransport({
 });
 
 
-/*
-let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: false,
-    auth: {
-        type: 'OAuth2'
-    }
-});
-
-transporter.set('oauth2_provision_cb', (user, renew, callback) => {
-    let accessToken = userTokens['rdmytrenko07@gmail.com'];
-    if(!accessToken){
-        return callback(new Error('Unknown user'));
-    }else{
-        return callback(null, accessToken);
-    }
-});
-
-transporter.sendMail({
-    from: 'rdmytrenko07@gmail.com',
-    to: 'liverkuzen1989@gmail.com',
-    subject: 'Message',
-    text: 'I hope this message gets through!',
-    auth: {
-        user: 'user@example.com'
-    }
-});
-*/
-
 app.get('/', function (req, res) {
     res.send('Hello World!');
 });
