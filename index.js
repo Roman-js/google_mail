@@ -27,8 +27,8 @@ let transporter = nodemailer.createTransport({
         pass:smtp_password, // generated ethereal password
      },*/
 
-    host: 'smtp.rambler.ru',
-    port: 465,
+    host: 'imap.rambler.ru',
+    port: 995,
     auth: {
         user: 'pilesos9@rambler.ru',
         pass: 'Roman371789'
