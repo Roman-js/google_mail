@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:3000'
+    origin: 'https://roman-js.github.io/Portfolio/'
 }));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -41,17 +41,15 @@ app.post('/sendMessage', async function (req, res) {
         from: 'romand07@yahoo.com', // sender address
         to: "liverkuzen1989@gmail.com", // list of receivers
         subject:" HRs WANTS ME", // Subject line
-        /* text: "Hello world?", // plain text body*/
         html: `<b>HСообщение с вашего портфолио</b>
                <div>name: ${name}</div>
                <div>contacts: ${contacts}</div>
                <div>message: ${message}</div>`, // html body
     });
-
     res.send(req.body);
 });
 
-let port = process.env.PORT || 3010; //3010
+let port = process.env.PORT || 3010;
 
 app.listen(port, function () {
     console.log('Example app listening on port 3000!');
