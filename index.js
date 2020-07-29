@@ -11,26 +11,9 @@ app.use(cors({
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-let smtp_login = process.env.SMTP_LOGIN || 'rdmytrenko07@gmail.com';
-let smtp_password = process.env.SMTP_PASSWORD || 'Liverkuzen1989';
+let smtp_login = process.env.SMTP_LOGIN || '';
+let smtp_password = process.env.SMTP_PASSWORD || '';
 
-
-/*
-let transporter = nodemailer.createTransport({
-
-    // host: 'smtp.gmail.com',
-    // port: 587,
-    // secure: false, // true for 465, false for other ports
-    // requireTLS: true,
-
-   service: 'gmail',
-    auth: {
-        user: smtp_login, // generated ethereal user
-        pass: 'gU _ & #! Gs645.', // generated ethereal password
-     },
-
-});
-*/
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.mail.yahoo.com',
@@ -38,8 +21,8 @@ const transporter = nodemailer.createTransport({
     service:'yahoo',
     secure: false,
     auth: {
-        user: 'romand07@yahoo.com',
-        pass: 'pnfqxpgebfrujsgk'
+        user: smtp_login,
+        pass: smtp_password
     },
     debug: false,
     logger: true /*.  <---highly recommend this one here*/
