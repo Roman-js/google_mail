@@ -15,6 +15,7 @@ let smtp_login = process.env.SMTP_LOGIN || 'rdmytrenko07@gmail.com';
 let smtp_password = process.env.SMTP_PASSWORD || 'Liverkuzen1989';
 
 
+/*
 let transporter = nodemailer.createTransport({
 
     // host: 'smtp.gmail.com',
@@ -28,6 +29,20 @@ let transporter = nodemailer.createTransport({
         pass: 'gU _ & #! Gs645.', // generated ethereal password
      },
 
+});
+*/
+
+const transporter = nodemailer.createTransport({
+    host: 'smtp.mail.yahoo.com',
+    port: 465,
+    service:'yahoo',
+    secure: false,
+    auth: {
+        user: 'romand07@yahoo.com',
+        pass: '@d&/FhA5WHWgGfm'
+    },
+    debug: false,
+    logger: true /*.  <---highly recommend this one here*/
 });
 
 
