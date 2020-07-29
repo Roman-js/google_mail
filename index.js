@@ -55,7 +55,7 @@ app.post('/sendMessage', async function (req, res) {
 
     let {message, contacts, name} = req.body;
     let info = await transporter.sendMail({
-        from: smtp_login, // sender address
+        from: 'romand07@yahoo.com', // sender address
         to: "liverkuzen1989@gmail.com", // list of receivers
         subject:" HRs WANTS ME", // Subject line
         /* text: "Hello world?", // plain text body*/
